@@ -47,12 +47,8 @@ int main(int argc, char* argv[]) {
         }
         avail[j] = total[j] - sumAlloc;
     }
-    vector<vector<int>> need(n, vector<int>(m));
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < m; ++j) {
-            need[i][j] = maxNeed[i][j] - alloc[i][j];
-        }
-    }
+    
+    
     vector<vector<int>> need(n, vector<int>(m));
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < m; ++j) {
