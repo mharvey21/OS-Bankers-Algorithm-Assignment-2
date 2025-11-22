@@ -55,10 +55,48 @@ int main(int argc, char* argv[]) {
             need[i][j] = maxNeed[i][j] - alloc[i][j];
         }
     }
+    
 
-        vector<int> work = avail;        // Work = Available
-    vector<bool> finish(n, false);   // Finish[i] = false for all i
-    vector<int> safeSequence;        // Safe sequence
+    cout << "Allocation Matrix:\n";
+    for (int i = 0; i < n; ++i) {
+    cout << "P" << i << ": ";
+    for (int j = 0; j < m; ++j) {
+        cout << alloc[i][j] << " ";
+    }
+    cout << "\n";
+    }
+    cout << "\n";
+
+    cout << "Max Matrix:\n";
+    for (int i = 0; i < n; ++i) {
+    cout << "P" << i << ": ";
+    for (int j = 0; j < m; ++j) {
+        cout << maxNeed[i][j] << " ";
+    }
+    cout << "\n";
+    }
+    cout << "\n";
+
+    cout << "Need Matrix (Max - Allocation):\n";
+    for (int i = 0; i < n; ++i) {
+    cout << "P" << i << ": ";
+    for (int j = 0; j < m; ++j) {
+        cout << need[i][j] << " ";
+    }
+    cout << "\n";
+    }
+    cout << "\n";
+
+    cout << "Initial Available Resources: ";
+    for (int j = 0; j < m; ++j) {
+    cout << avail[j] << " ";
+    }
+    cout << "\n\n";
+
+
+    vector<int> work = avail;        
+    vector<bool> finish(n, false);   
+    vector<int> safeSequence;        
 
     int countFinished = 0;
     while (countFinished < n) {
@@ -75,7 +113,6 @@ int main(int argc, char* argv[]) {
                 }
 
                 if (canRun) {
-                    // This process can safely run to completion
                     for (int j = 0; j < m; ++j) {
                         work[j] += alloc[i][j];
                     }
@@ -100,16 +137,21 @@ int main(int argc, char* argv[]) {
     }
 
     if (safe) {
-        cout << "The system is in a SAFE state.\n";
-        cout << "Safe sequence: ";
-        for (size_t k = 0; k < safeSequence.size(); ++k) {
-            cout << "P" << safeSequence[k];
-            if (k + 1 < safeSequence.size()) cout << " -> ";
+    cout << "The system is in a safe state.\n";
+    cout << "Safe Sequence: < ";
+    for (size_t k = 0; k < safeSequence.size(); ++k) {
+        cout << "P" << safeSequence[k];
+        if (k + 1 < safeSequence.size()) {
+            cout << ", ";
+        } else {
+            cout << " ";
         }
-        cout << "\n";
-    } else {
-        cout << "The system is in an UNSAFE state (no safe sequence).\n";
     }
+    cout << ">\n";
+    } else {
+        cout << "The system is in an unsafe state.\n";
+    }
+
 
     return 0;
 }
