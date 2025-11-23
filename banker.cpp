@@ -57,9 +57,10 @@ int main(int argc, char* argv[]) {
     }
     
 
-    cout << "Allocation Matrix:\n";
+
+    cout << "=== Allocation Table ===\n";
     for (int i = 0; i < n; ++i) {
-    cout << "P" << i << ": ";
+        cout << "P" << i << " | ";
     for (int j = 0; j < m; ++j) {
         cout << alloc[i][j] << " ";
     }
@@ -67,19 +68,19 @@ int main(int argc, char* argv[]) {
     }
     cout << "\n";
 
-    cout << "Max Matrix:\n";
+    cout << "=== Maximum Demand Table ===\n";
     for (int i = 0; i < n; ++i) {
-    cout << "P" << i << ": ";
+         cout << "P" << i << " | ";
     for (int j = 0; j < m; ++j) {
-        cout << maxNeed[i][j] << " ";
-    }
-    cout << "\n";
-    }
-    cout << "\n";
+         cout << maxNeed[i][j] << " ";
+         }
+     cout << "\n";
+     }
+     cout << "\n";
 
-    cout << "Need Matrix (Max - Allocation):\n";
-    for (int i = 0; i < n; ++i) {
-    cout << "P" << i << ": ";
+     cout << "=== Remaining Need Table ===\n";
+     for (int i = 0; i < n; ++i) {
+          cout << "P" << i << " | ";
     for (int j = 0; j < m; ++j) {
         cout << need[i][j] << " ";
     }
@@ -87,9 +88,9 @@ int main(int argc, char* argv[]) {
     }
     cout << "\n";
 
-    cout << "Initial Available Resources: ";
+    cout << "Initial Available Resources | ";
     for (int j = 0; j < m; ++j) {
-    cout << avail[j] << " ";
+         cout << avail[j] << " ";
     }
     cout << "\n\n";
 
@@ -137,21 +138,23 @@ int main(int argc, char* argv[]) {
     }
 
     if (safe) {
-    cout << "The system is in a safe state.\n";
-    cout << "Safe Sequence: < ";
+    cout << "System Status: SAFE\n";
+    cout << "Safe Order: [ ";
     for (size_t k = 0; k < safeSequence.size(); ++k) {
         cout << "P" << safeSequence[k];
         if (k + 1 < safeSequence.size()) {
-            cout << ", ";
+            cout << " | ";
         } else {
             cout << " ";
         }
     }
-    cout << ">\n";
+    cout << "]\n";
     } else {
-        cout << "The system is in an unsafe state.\n";
+    cout << "System Status: UNSAFE\n";
     }
+
 
 
     return 0;
 }
+
