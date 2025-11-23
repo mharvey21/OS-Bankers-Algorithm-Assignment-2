@@ -25,11 +25,12 @@ g++ -std=c++17 banker.cpp -o banker
 
 ## **Output**
 
-![Program Output](output.png)
+![Program Output](output1.png)
 
 
 ## **Conclusion**
 
 The data given to us (input.txt) was indeed in safe state, and was rightfully so the safe sequence was displayed in the output.
+
 
 
