@@ -20,6 +20,12 @@ g++ -std=c++17 banker.cpp -o banker
 
 ## **Input**
 
+![Input File](input.png)
+
+
+## **Output**
+
+![Program Output](output.png)
 
 
 
