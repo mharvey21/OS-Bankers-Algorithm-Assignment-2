@@ -28,4 +28,7 @@ g++ -std=c++17 banker.cpp -o banker
 ![Program Output](output.png)
 
 
+## **Conclusion**
+
+The data given to us (input.txt) was indeed in safe state, and was rightfully so given the said order in the output
 
