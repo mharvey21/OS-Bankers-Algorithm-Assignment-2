@@ -7,16 +7,19 @@ It reads system state information from an input file, computes the **Allocation*
 
 ## **How to Compile (Linux / GitHub Codespaces)**
 
-'''
+```
 g++ -std=c++17 banker.cpp -o banker
-'''
+```
 
 
 ## **How to Run**
 
 ```bash
 ./banker input.txt
-
+```
 
 ## **Input**
+
+
+
 
